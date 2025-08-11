@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henry Anim Antwi - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header h2 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item i {
+            font-size: 1.1rem;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #2563eb;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+            font-weight: 600;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid #e5e7eb;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            border-left-color: #2563eb;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .item-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .item-date {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .item-company {
+            font-weight: 500;
+            color: #2563eb;
+            margin-bottom: 5px;
+        }
+
+        .item-description {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+        }
+
+        .skill-category h4 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            color: #4b5563;
+            margin-bottom: 5px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: '•';
+            color: #2563eb;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .certifications {
+            display: grid;
+            gap: 15px;
+        }
+
+        .certification-item {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #fbbf24;
+        }
+
+        .certification-item h4 {
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .certification-item p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .print-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            .print-button {
+                display: none;
+            }
+            
+            body {
+                background: white;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+                border-radius: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">
+        <i class="fas fa-print"></i> Print Resume
+    </button>
+
+    <div class="resume-container">
+        <div class="header">
+            <h1>Henry Anim Antwi</h1>
+            <h2>IT Student • Graphic Designer • Web Developer</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>generalh714@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+233 596 043 811</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Accra, Ghana</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h3 class="section-title">Professional Summary</h3>
+                <p style="color: #4b5563; line-height: 1.8;">
+                    Dedicated IT student with a passion for technology and design. Proficient in web development, 
+                    graphic design, and software development. Experienced in creating responsive websites, 
+                    user interfaces, and digital graphics. Strong problem-solving skills and ability to work 
+                    in fast-paced environments. Seeking opportunities to apply technical skills and creativity 
+                    in a professional setting.
+                </p>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Education</h3>
+                <div class="education-item">
+                    <div class="item-header">
+                        <div class="item-title">Bachelor of Information Technology</div>
+                        <div class="item-date">2025 - Present</div>
+                    </div>
+                    <div class="item-company">University of Professional Studies</div>
+                    <div class="item-description">
+                        Major in Information Technology with focus on Web Development and Graphic Design. 
+                        Relevant coursework: Web Development, Database Management, UI/UX Design, 
+                        Software Engineering, Data Structures & Algorithms.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Experience</h3>
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-title">Freelance Web Developer & Designer</div>
+                        <div class="item-date">2023 - Present</div>
+                    </div>
+                    <div class="item-company">Self-Employed</div>
+                    <div class="item-description">
+                        <ul style="margin-left: 20px; color: #4b5563;">
+                            <li>Developed responsive websites for small businesses using HTML, CSS, JavaScript, and React</li>
+                            <li>Created brand identities, logos, and marketing materials using Adobe Creative Suite</li>
+                            <li>Managed client relationships, project timelines, and delivered projects on schedule</li>
+                            <li>Implemented SEO best practices and optimized website performance</li>
+                            <li>Provided ongoing maintenance and support for client websites</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html> 

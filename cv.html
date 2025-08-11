@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henry Anim Antwi - Curriculum Vitae</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ecf0f1;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 25px rgba(0,0,0,0.15);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+            padding: 50px 40px;
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .header-main h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .header-main h2 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .header-main p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+
+        .profile-image {
+            text-align: center;
+        }
+
+        .profile-image i {
+            font-size: 6rem;
+            color: #3498db;
+            background: white;
+            border-radius: 50%;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .contact-details {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            border-bottom: 3px solid #3498db;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+        }
+
+        .contact-item i {
+            color: #3498db;
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #bdc3c7;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: #3498db;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #bdc3c7;
+        }
+
+        .timeline-item:hover::before {
+            background: #e74c3c;
+            box-shadow: 0 0 0 3px #3498db;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .timeline-date {
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .timeline-subtitle {
+            font-size: 1.1rem;
+            color: #3498db;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .timeline-description {
+            color: #5a6c7d;
+            line-height: 1.8;
+        }
+
+        .timeline-description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .timeline-description li {
+            margin-bottom: 8px;
+            color: #5a6c7d;
+        }
+
+        .skills-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h4 i {
+            color: #3498db;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            color: #5a6c7d;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .skill-list li::before {
+            content: '▸';
+            color: #3498db;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .project-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #e74c3c;
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .project-date {
+            background: #e74c3c;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .project-description {
+            color: #5a6c7d;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background: #3498db;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .achievements {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #f39c12;
+        }
+
+        .achievements h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .achievements ul {
+            list-style: none;
+        }
+
+        .achievements li {
+            color: #5a6c7d;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .achievements li::before {
+            content: '🏆';
+            position: absolute;
+            left: 0;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .print-button:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        @media print {
+            .print-button {
+                display: none;
+            }
+            
+            body {
+                background: white;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                margin: 0;
+                border-radius: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .header-main h1 {
+                font-size: 2.5rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-section {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Contact form styles */
+        .contact-form {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+        .contact-form .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .contact-form .form-group {
+            margin-bottom: 15px;
+        }
+        .contact-form label {
+            display: block;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            background: #fff;
+            color: #2c3e50;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+        }
+        .contact-form .form-actions {
+            margin-top: 10px;
+        }
+        .contact-form button[type="submit"] {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .contact-form button[type="submit"]:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(41, 128, 185, 0.3);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">
+        <i class="fas fa-print"></i> Print CV
+    </button>
+
+    <div class="cv-container">
+        <div class="header">
+            <div class="header-content">
+                <div class="header-main">
+                    <h1>Henry Anim Antwi</h1>
+                    <h2>Information Technology Student & Creative Developer</h2>
+                    <p>
+                        Passionate IT student with expertise in web development, graphic design, and software engineering. 
+                        Combining technical skills with creative problem-solving to deliver innovative digital solutions. 
+                        Experienced in full-stack development, UI/UX design, and project management.
+                    </p>
+                </div>
+                <div class="profile-image">
+                    <img src="jojo2.jpg" alt="Henry Anim Antwi" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-details">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>generalh714@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+233 596 043 811</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Accra, Ghana</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h3 class="section-title">Education</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                                                    <div class="timeline-title">Bachelor of Information Technology</div>
+                        <div class="timeline-date">2025 - Present</div>
+                    </div>
+                    <div class="timeline-subtitle">University of Professional Studies</div>
+                    <div class="timeline-description">
+                        <p>Major in Information Technology with specialization in Web Development and Graphic Design.</p>
+                        <ul>
+                            <li>Relevant Coursework: Web Development, Database Management, UI/UX Design, Software Engineering, Data Structures & Algorithms, Computer Networks, Operating Systems</li>
+                            <li>Member of Computer Science Club and Web Development Society</li>
+                            <li>Participated in hackathons and coding competitions</li>
+                        </ul>
+                    </div>
+                    </div>
+                    
+                                    </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Contact</h3>
+                <form class="contact-form" action="https://formspree.io/f/mrbljzyz" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input id="name" name="name" type="text" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" name="_replyto" type="email" placeholder="you@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input id="subject" name="subject" type="text" placeholder="What is this about?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Professional Experience</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="timeline-title">Freelance Web Developer & Designer</div>
+                            <div class="timeline-date">2023 - Present</div>
+                        </div>
+                        <div class="timeline-subtitle">Self-Employed</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Developed 15+ responsive websites for small businesses and startups using modern web technologies</li>
+                                <li>Created comprehensive brand identities including logos, color schemes, and marketing materials</li>
+                                <li>Implemented SEO best practices resulting in 40% average increase in organic traffic</li>
+                                <li>Managed client relationships and project timelines, maintaining 100% client satisfaction rate</li>
+                                <li>Provided ongoing maintenance, updates, and technical support for client websites</li>
+                                <li>Collaborated with marketing teams to create effective digital marketing campaigns</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</body>
+</html> 
